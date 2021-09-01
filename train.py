@@ -36,17 +36,19 @@ if not os.path.exists(os.path.join(paths['APIMODEL_PATH'], 'research', 'object_d
     os.system("git clone https://github.com/tensorflow/models {}".format(paths['APIMODEL_PATH']))
     print("Compile and Install Dependencies:")
     print("apt-get install protobuf-compiler")
-    print("cd Tensorflow/models/research && protoc object_detection/protos/*.proto --python_out=. && cp object_detection/packages/tf2/setup.py . && python -m pip install .")
+    print("cd Tensorflow/models/research && protoc object_detection/protos/*.proto --python_out=. && cp object_detection/packages/tf2/setup.py . && python -m pip install . && cd ../../../")
     quit()
 
 VERIFICATION_SCRIPT = os.path.join(paths['APIMODEL_PATH'], 'research', 'object_detection', 'builders', 'model_builder_tf2_test.py')
 
-if len(sys.argv) == 0 or sys.argv[1] == "test":
-    print("Verify Dependencies:")
-    print(VERIFICATION_SCRIPT)
-    print("Run this to ensure all dependencies are satisfied, resolve any that aren't.")
-    print("")
-    quit()
+print("Verify Dependencies:")
+print("Run this to ensure all dependencies are satisfied, resolve any that aren't.")
+print("python" + VERIFICATION_SCRIPT)
+print("")
+
+if len(sys.argv) > 1:
+    if sys.argv[1] == "test":
+        quit()
 
 import object_detection
 
@@ -62,6 +64,13 @@ if not os.path.exists(os.path.join(paths['IMAGE_PATH'], "train")) and not os.pat
     os.system("mv {}/anpr-data/annotations/Cars{{0..410}}.* {}/anpr-data/images/Cars{{0..410}}.* {}/train/".format(paths['IMAGE_PATH'], paths['IMAGE_PATH'], paths['IMAGE_PATH']))
     os.system("mv {}/anpr-data/annotations/* {}/anpr-data/images/* {}/test/".format(paths['IMAGE_PATH'], paths['IMAGE_PATH'], paths['IMAGE_PATH']))
     os.system("rm -rf {}".format(paths['IMAGE_PATH'], "anpr-data"))
+
+if len(sys.argv) > 1:
+    if sys.argv[1] == "test":
+        print("Ready To Train:")
+        print("Re-run the train.py script with the train command-line input.")
+        print("python train.py train")
+        quit()
 
 labels = [{'name':'licence', 'id':1}]
 
