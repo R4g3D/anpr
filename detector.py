@@ -53,10 +53,9 @@ from matplotlib import pyplot as plt
 
 category_index = label_map_util.create_category_index_from_labelmap(files['LABELMAP'])
 
-IMAGE = 'Cars412.png'
+IMAGE_PATH = os.path.join(paths['IMAGE_PATH'], 'test', 'Cars412.png')
 if len(sys.argv) > 1:
-    IMAGE = sys.argv[1]
-IMAGE_PATH = os.path.join(paths['IMAGE_PATH'], 'test', IMAGE)
+    IMAGE_PATH = sys.argv[1]
 
 img = cv2.imread(IMAGE_PATH)
 image_np = np.array(img)
