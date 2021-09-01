@@ -43,7 +43,7 @@ VERIFICATION_SCRIPT = os.path.join(paths['APIMODEL_PATH'], 'research', 'object_d
 
 print("Verify Dependencies:")
 print("Run this to ensure all dependencies are satisfied, resolve any that aren't.")
-print("python" + VERIFICATION_SCRIPT)
+print("python " + VERIFICATION_SCRIPT)
 print("")
 
 if len(sys.argv) > 1:
