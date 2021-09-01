@@ -18,6 +18,6 @@ python train.py train
 <b>Step 3.</b> Run the ANPR on an image.
 <pre>
 python detector.py # Default image
-python detector.py <image.png> # In current directory
-python detector.py </path/to/image.png> # In another directory
+python detector.py \<image.png> # In current directory
+python detector.py \</path/to/image.png> # In another directory
 </pre>
