@@ -7,7 +7,6 @@ Original code and walkthrough by: <a href="https://www.youtube.com/c/nicholasren
 <pre>
 python train.py
 </pre> 
-<br/>
 <b>Step 2.</b> Run the ANPR on an image.
 <pre>
 python detector.py
