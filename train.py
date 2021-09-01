@@ -47,7 +47,7 @@ print("python " + VERIFICATION_SCRIPT)
 print("")
 
 if len(sys.argv) > 1:
-    if sys.argv[1] == "test":
+    if sys.argv[1] == "setup":
         quit()
 
 import object_detection
