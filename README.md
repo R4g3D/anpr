@@ -10,7 +10,7 @@ python train.py test
 </pre> 
 <b>Step 2.</b> Run the train.py script to get the command needed to start training.
 <pre>
-python train.py
+python train.py train
 </pre>
 <b>Step 3.</b> Run the ANPR on an image.
 <pre>
