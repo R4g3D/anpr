@@ -60,6 +60,7 @@ if not os.path.exists(os.path.join(paths['IMAGE_PATH'], "train")) and not os.pat
     os.system("mkdir -p {}".format(os.path.join(paths['IMAGE_PATH'], "test")))
     os.system("git clone https://github.com/R4g3D/anpr-data.git {}".format(paths['IMAGE_PATH']))
     os.system("mv {}/anpr-data/annotations/Cars{{0..410}}.* {}/anpr-data/images/Cars{{0..410}}.* {}/train/".format(paths['IMAGE_PATH'], paths['IMAGE_PATH'], paths['IMAGE_PATH']))
+    os.system("mv {}/anpr-data/annotations/vehicle{{000001..012948}}.* {}/anpr-data/images/vehicle{{000001..012948}}.* {}/train/".format(paths['IMAGE_PATH'], paths['IMAGE_PATH'], paths['IMAGE_PATH']))
     os.system("mv {}/anpr-data/annotations/* {}/anpr-data/images/* {}/test/".format(paths['IMAGE_PATH'], paths['IMAGE_PATH'], paths['IMAGE_PATH']))
     os.system("rm -rf {}".format(paths['IMAGE_PATH'], "anpr-data"))
 
