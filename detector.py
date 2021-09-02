@@ -36,9 +36,16 @@ files = {
 configs = config_util.get_configs_from_pipeline_file(files['PIPELINE_CONFIG'])
 detection_model = model_builder.build(model_config=configs['model'], is_training=False)
 
+checkpoints = []
+for f in os.listdir(paths['CHECKPOINT_PATH']):
+    if ".index" in f:
+        checkpoints.append(int(f[5:-6]))
+
+checkpoints.sort()
+
 # Restore checkpoint
 ckpt = tf.compat.v2.train.Checkpoint(model=detection_model)
-ckpt.restore(os.path.join(paths['CHECKPOINT_PATH'], 'ckpt-9')).expect_partial()
+ckpt.restore(os.path.join(paths['CHECKPOINT_PATH'], 'ckpt-' + str(checkpoints[-1]))).expect_partial()
 
 @tf.function
 def detect_fn(image):
@@ -98,13 +105,13 @@ width = image.shape[1]
 height = image.shape[0]
 
 for idx, box in enumerate(boxes):
-    print(box)
+    # print(box)
     roi = box*[height, width, height, width]
-    print(roi)
+    # print(roi)
     region = image[int(roi[0]):int(roi[2]),int(roi[1]):int(roi[3])]
     reader = easyocr.Reader(['en'])
     ocr_result = reader.readtext(region)
-    print(ocr_result)
+    # print(ocr_result)
 
 region_threshold = 0.05
 

@@ -72,7 +72,7 @@ if len(sys.argv) > 1:
         print("python train.py train")
         quit()
 
-labels = [{'name':'licence', 'id':1}]
+labels = [{'name':'vehicle', 'id':1}, {'name':'licence', 'id':2}]
 
 with open(files['LABELMAP'], 'w') as f:
     for label in labels:
