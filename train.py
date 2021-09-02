@@ -41,13 +41,11 @@ if not os.path.exists(os.path.join(paths['APIMODEL_PATH'], 'research', 'object_d
 
 VERIFICATION_SCRIPT = os.path.join(paths['APIMODEL_PATH'], 'research', 'object_detection', 'builders', 'model_builder_tf2_test.py')
 
-print("Verify Dependencies:")
-print("Run this to ensure all dependencies are satisfied, resolve any that aren't.")
-print("python " + VERIFICATION_SCRIPT)
-print("")
-
 if len(sys.argv) > 1:
     if sys.argv[1] == "setup":
+        print("Verify Dependencies:")
+        print("Run this to ensure all dependencies are satisfied, resolve any that aren't.")
+        print("python " + VERIFICATION_SCRIPT)
         quit()
 
 import object_detection

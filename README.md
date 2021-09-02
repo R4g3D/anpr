@@ -21,3 +21,11 @@ python detector.py # Default image
 python detector.py &lt;image.png&gt; # In current directory
 python detector.py &lt;/path/to/image.png&gt; # In another directory
 </pre>
+<b>Step 4.</b> Run the ANPR on a webcam/video/stream.
+<pre>
+python watcher.py # Default image
+python watcher.py &lt;video.mp4&gt; # Video file in current directory
+python watcher.py &lt;/path/to/video.mp4&gt; # Video file in another directory
+python watcher.py &lt;rtsp://user:pass@ipaddress:port/resource&gt; # RTSP stream
+</pre>
+Note: watcher.py is not currently operational.
