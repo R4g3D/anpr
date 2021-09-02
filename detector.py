@@ -92,8 +92,12 @@ viz_utils.visualize_boxes_and_labels_on_image_array(
             max_boxes_to_draw=5,
             min_score_thresh=.8,
             agnostic_mode=False)
-
-import easyocr
+try:
+    import easyocr
+except:
+    print("Please install easyocr:")
+    print("pip install easyocr")
+    quit()
 
 detection_threshold = 0.7
 
