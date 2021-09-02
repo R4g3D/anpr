@@ -1,6 +1,7 @@
 # anpr
 A (mostly) automated setup for Automatic Number Plate Detection (ANPR).<br />
 Original code and walkthrough by: <a href="https://www.youtube.com/c/nicholasrenotte">Nicholas Renotte</a><br />
+This code only works on Linux systems. (AWS t2.large ubuntu-focal-20.04-amd64-server 16 GB storage)
 
 ## Steps
 <b>Step 1.</b> Run the train.py script to setup the environment.<br />
