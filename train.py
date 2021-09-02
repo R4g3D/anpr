@@ -56,15 +56,9 @@ if not os.path.exists(os.path.join(paths['PRETRAINED_MODEL_PATH'], PRETRAINED_MO
     os.system("tar -zxf {} -C {}".format(os.path.join(paths['PRETRAINED_MODEL_PATH'], PRETRAINED_MODEL_NAME+'.tar.gz'), paths['PRETRAINED_MODEL_PATH']))
 
 if not os.path.exists(os.path.join(paths['IMAGE_PATH'], "train")) and not os.path.exists(os.path.join(paths['IMAGE_PATH'], "test")):
-    os.system("mkdir -p {}".format(os.path.join(paths['IMAGE_PATH'], "train")))
-    os.system("mkdir -p {}".format(os.path.join(paths['IMAGE_PATH'], "test")))
-    os.system("mkdir -p {}".format(os.path.join(paths['IMAGE_PATH'], "anpr-data")))
-    os.system("git clone https://github.com/R4g3D/anpr-data.git {}".format(os.path.join(paths['IMAGE_PATH'], "anpr-data")))
-    os.system("mv {}/anpr-data/annotations/Cars{{0..410}}.* {}/anpr-data/images/Cars{{0..410}}.* {}/train/".format(paths['IMAGE_PATH'], paths['IMAGE_PATH'], paths['IMAGE_PATH']))
-    os.system("mv {}/anpr-data/annotations/vehicle{{000001..012948}}.* {}/anpr-data/images/vehicle{{000001..012948}}.* {}/train/".format(paths['IMAGE_PATH'], paths['IMAGE_PATH'], paths['IMAGE_PATH']))
-    os.system("mv {}/anpr-data/annotations/* {}/anpr-data/images/* {}/test/".format(paths['IMAGE_PATH'], paths['IMAGE_PATH'], paths['IMAGE_PATH']))
-    os.system("rm -rf {}".format(paths['IMAGE_PATH'], "anpr-data"))
-
+    os.system("mkdir -p {}".format(paths['IMAGE_PATH']))
+    os.system("git clone https://github.com/R4g3D/anpr-data.git {}".format(paths['IMAGE_PATH']))
+    
 if len(sys.argv) > 1:
     if sys.argv[1] == "test":
         print("Ready To Train:")
