@@ -12,17 +12,21 @@ python train.py setup
 <pre>
 python train.py test
 </pre>
-<b>Step 2.</b> Run the train.py script to get the command needed to start training.<br />
+<b>Step 3.</b> Run the train.py script to get the command needed to start training.<br />
 <pre>
 python train.py train
 </pre>
-<b>Step 3.</b> Run the ANPR on an image.
+<b>Optional.</b> Run the train.py script to get the command needed to evaluate the model.<br />
+<pre>
+python train.py evaluate
+</pre>
+<b>Step 4.</b> Run the ANPR on an image.
 <pre>
 python detector.py # Default image
 python detector.py &lt;image.png&gt; # In current directory
 python detector.py &lt;/path/to/image.png&gt; # In another directory
 </pre>
-<b>Step 4.</b> Run the ANPR on a webcam/video/stream.
+<b>Optional.</b> Run the ANPR on a webcam/video/stream.
 <pre>
 python watcher.py # Default image
 python watcher.py &lt;video.mp4&gt; # Video file in current directory

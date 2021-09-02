@@ -58,7 +58,7 @@ if not os.path.exists(os.path.join(paths['PRETRAINED_MODEL_PATH'], PRETRAINED_MO
 if not os.path.exists(os.path.join(paths['IMAGE_PATH'], "train")) and not os.path.exists(os.path.join(paths['IMAGE_PATH'], "test")):
     os.system("mkdir -p {}".format(paths['IMAGE_PATH']))
     os.system("git clone https://github.com/R4g3D/anpr-data.git {}".format(paths['IMAGE_PATH']))
-    
+
 if len(sys.argv) > 1:
     if sys.argv[1] == "test":
         print("Ready To Train:")
@@ -118,4 +118,10 @@ command = "python {} --model_dir={} --pipeline_config_path={} --num_train_steps=
 
 if sys.argv[1] == "train":
     print("Train Model:")
+    print(command)
+
+command = "python {} --model_dir={} --pipeline_config_path={} --checkpoint_dir={}".format(TRAINING_SCRIPT, paths['CHECKPOINT_PATH'],files['PIPELINE_CONFIG'], paths['CHECKPOINT_PATH'])
+
+if sys.argv[1] == "evaluate":
+    print("Evaluate Model:")
     print(command)
